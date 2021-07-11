@@ -24,11 +24,9 @@ Going to need (ie. assets)
 
 Key Tasks
  * Todo
-   - Main Level: Paddle movement (player only)
-   - Main Level: Ball movement
    - Main Level: Scoring & score UI
-
    - Main Level: Game over (detection + UI)
+
    - Main Level: Sound effects
    - Main Level: Paddle AI
 
@@ -37,7 +35,9 @@ Key Tasks
  * Stretch goals
    - Main Level: Enhancing
  * Done
+   - Main Level: Ball movement
+   - Main Level: Paddle movement (player only)
    - Main Level: Level blockout
-   - Initial planning
-   - Created project
    - Skeleton of main menu
+   - Created project
+   - Initial planning
