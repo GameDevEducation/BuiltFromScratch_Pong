@@ -12,10 +12,10 @@ Key elements
 
 Going to need (ie. assets)
  * Audio
-   - Ball hit wall
-   - Ball hit paddle (speed up vs speed down variants)
-   - Goal scored sound
-   - End of game sound
+   - (Done) Ball hit wall
+   - (Done) Ball hit paddle (speed up vs speed down variants)
+   - (Done) Goal scored sound
+   - (Done) End of game sound
  * Materials
    - (Done) Ball
    - (Done) Wall
@@ -24,17 +24,17 @@ Going to need (ie. assets)
 
 Key Tasks
  * Todo
-   - Main Level: Scoring & score UI
-   - Main Level: Game over (detection + UI)
-
-   - Main Level: Sound effects
    - Main Level: Paddle AI
-
    - Main Menu: Settings
    - Main Menu: Credits
+
  * Stretch goals
    - Main Level: Enhancing
  * Done
+   - Main Level: Game over (detection + UI)
+   - Main Level: Spawning ball
+   - Main Level: Scoring & score UI
+   - Main Level: Sound effects
    - Main Level: Ball movement
    - Main Level: Paddle movement (player only)
    - Main Level: Level blockout

@@ -25,16 +25,15 @@ public class BallController : MonoBehaviour
     [SerializeField] float MaximumSpeed = 50f;
     [SerializeField] float MaxLaunchAngle = 30f;
     [SerializeField] float PaddleVelocityWeight = 1f;
+    [SerializeField] Rigidbody BallRB;
 
     [SerializeField] bool AutoLaunch = true;
 
-    Rigidbody BallRB;
     ELastTouchedBy LastTouchedBy = ELastTouchedBy.NoOne;
 
     // Start is called before the first frame update
     void Start()
     {
-        BallRB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -106,17 +105,17 @@ public class BallController : MonoBehaviour
     {
         if (other.CompareTag("Player1Goal"))
         {
-            Debug.Log("Player 1");
+            GameManager.Instance.OnPlayer1GoalHit();
         }
         else if (other.CompareTag("Player2Goal"))
         {
-            Debug.Log("Player 2");
+            GameManager.Instance.OnPlayer2GoalHit();
         }
     }
 
     void OnHitPaddle(Collision other)
     {
-        // TODO - sound effect
+        AudioManager.Instance.OnBallHitPaddle();
 
         // reflect the velocity
         Vector3 reflectedVelocity = Vector3.Reflect(CurrentVelocity, other.GetContact(0).normal);        
@@ -128,7 +127,7 @@ public class BallController : MonoBehaviour
 
     void OnHitWall(Collision other)
     {
-        // TODO - sound effect
+        AudioManager.Instance.OnBallHitWall();
 
         // reflect the velocity
         BallRB.velocity = Vector3.Reflect(CurrentVelocity, other.GetContact(0).normal);        
