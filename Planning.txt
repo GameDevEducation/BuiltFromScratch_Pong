@@ -1,0 +1,43 @@
+Based off of pong
+
+Key elements
+ * Ball that moves around rectangular environment
+ * Two player (1 human + 1 AI or 2 humans)
+ * Each player/AI can control a single paddle
+ * If ball hits wall behind player then opponent scores a point
+ * Ball bounces off of surfaces
+ * Ball speed remains the same except when hits the paddle
+ * Paddle can speed up or slow down ball (hit while moving in same direction => increase speed)
+ * Winner is first to 5 points
+
+Going to need (ie. assets)
+ * Audio
+   - Ball hit wall
+   - Ball hit paddle (speed up vs speed down variants)
+   - Goal scored sound
+   - End of game sound
+ * Materials
+   - (Done) Ball
+   - (Done) Wall
+   - (Done) Paddle
+   - (Done) Goal
+
+Key Tasks
+ * Todo
+   - Main Level: Paddle movement (player only)
+   - Main Level: Ball movement
+   - Main Level: Scoring & score UI
+
+   - Main Level: Game over (detection + UI)
+   - Main Level: Sound effects
+   - Main Level: Paddle AI
+
+   - Main Menu: Settings
+   - Main Menu: Credits
+ * Stretch goals
+   - Main Level: Enhancing
+ * Done
+   - Main Level: Level blockout
+   - Initial planning
+   - Created project
+   - Skeleton of main menu
