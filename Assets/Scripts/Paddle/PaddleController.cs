@@ -57,7 +57,10 @@ public class PaddleController : MonoBehaviour
     void Update()
     {
         if (IsAIControlled)
-            Input_Move = Mathf.Clamp(PaddleAI.CalculatePaddleVelocity(), -1f, 1f);
+        {
+            float aiMoveCommand = GameManager.Instance.Effects_ModifyInput(this, PaddleAI.CalculatePaddleVelocity());
+            Input_Move = Mathf.Clamp(aiMoveCommand, -1f, 1f);
+        }
 
         if (Mathf.Sign(Input_Move) != Mathf.Sign(Input_Move_WithInertia))
             Input_Move_WithInertia = 0f;
@@ -69,7 +72,7 @@ public class PaddleController : MonoBehaviour
     void OnMove(InputValue moveInput)
     {
         if (!IsAIControlled)
-            Input_Move = moveInput.Get<Vector2>().y;
+            Input_Move = GameManager.Instance.Effects_ModifyInput(this, moveInput.Get<Vector2>().y);
     }
 
     void FixedUpdate()

@@ -29,7 +29,7 @@ public class BallController : MonoBehaviour
 
     [SerializeField] bool AutoLaunch = true;
 
-    ELastTouchedBy LastTouchedBy = ELastTouchedBy.NoOne;
+    public ELastTouchedBy LastTouchedBy { get; private set; }= ELastTouchedBy.NoOne;
 
     public float NormalisedVelocity => Mathf.Clamp01(CurrentVelocity.magnitude / MaximumSpeed);
 
