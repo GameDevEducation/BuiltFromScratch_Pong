@@ -17,6 +17,9 @@ public class PaddleController : MonoBehaviour
     [SerializeField] float Speed = 1f;
     [SerializeField] float MaxMovement = 3.5f;
     [SerializeField] float SpeedSlewRate = 1f;
+    [SerializeField] bool IsAIControlled = false;
+
+    IPaddleAI PaddleAI = null;
 
     Vector3 OriginPoint;
 
@@ -44,6 +47,7 @@ public class PaddleController : MonoBehaviour
     void Start()
     {
         PaddleRB = GetComponent<Rigidbody>();
+        PaddleAI = GetComponent<IPaddleAI>();
 
         OriginPoint = transform.position;
     }
@@ -52,6 +56,9 @@ public class PaddleController : MonoBehaviour
     float Input_Move_WithInertia;
     void Update()
     {
+        if (IsAIControlled)
+            Input_Move = Mathf.Clamp(PaddleAI.CalculatePaddleVelocity(), -1f, 1f);
+
         if (Mathf.Sign(Input_Move) != Mathf.Sign(Input_Move_WithInertia))
             Input_Move_WithInertia = 0f;
             
@@ -61,7 +68,8 @@ public class PaddleController : MonoBehaviour
     float Input_Move;
     void OnMove(InputValue moveInput)
     {
-        Input_Move = moveInput.Get<Vector2>().y;
+        if (!IsAIControlled)
+            Input_Move = moveInput.Get<Vector2>().y;
     }
 
     void FixedUpdate()
@@ -84,5 +92,10 @@ public class PaddleController : MonoBehaviour
             // update the position
             PaddleRB.MovePosition(OriginPoint + new Vector3(0, 0, newZPosition));
         }
+    }
+
+    public void SetIsAIControlled(bool newIsAIControlled)
+    {
+        IsAIControlled = newIsAIControlled;
     }
 }

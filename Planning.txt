@@ -24,13 +24,13 @@ Going to need (ie. assets)
 
 Key Tasks
  * Todo
-   - Main Level: Paddle AI
-   - Main Menu: Settings
-   - Main Menu: Credits
 
  * Stretch goals
    - Main Level: Enhancing
  * Done
+   - Main Menu: Settings
+   - Main Menu: Credits
+   - Main Level: Paddle AI
    - Main Level: Game over (detection + UI)
    - Main Level: Spawning ball
    - Main Level: Scoring & score UI

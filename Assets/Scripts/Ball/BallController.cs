@@ -31,6 +31,8 @@ public class BallController : MonoBehaviour
 
     ELastTouchedBy LastTouchedBy = ELastTouchedBy.NoOne;
 
+    public float NormalisedVelocity => Mathf.Clamp01(CurrentVelocity.magnitude / MaximumSpeed);
+
     // Start is called before the first frame update
     void Start()
     {

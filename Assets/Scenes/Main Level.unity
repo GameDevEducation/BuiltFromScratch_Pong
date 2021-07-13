@@ -549,7 +549,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6002994, y: 1}
+    m_SensorSize: {x: 1.6, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1761,6 +1761,7 @@ GameObject:
   - component: {fileID: 831054141}
   - component: {fileID: 831054140}
   - component: {fileID: 831054142}
+  - component: {fileID: 831054143}
   m_Layer: 0
   m_Name: Paddle - Player 1
   m_TagString: Player1Paddle
@@ -1861,6 +1862,7 @@ MonoBehaviour:
   Speed: 20
   MaxMovement: 3.5
   SpeedSlewRate: 1
+  IsAIControlled: 1
 --- !u!114 &831054141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,6 +1909,69 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!114 &831054143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831054135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635e6e5c8c5c00045bee58bb115d09bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlewRate: 5
+  MaxPositionDelta: 1
+  BallSpeedModifier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  VelocityOutput:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ReactionDistance: 10
 --- !u!1 &835605016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2808,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  LeftPaddle: {fileID: 831054140}
+  RightPaddle: {fileID: 1896694914}
 --- !u!114 &1416387882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3497,6 +3564,7 @@ GameObject:
   - component: {fileID: 1896694915}
   - component: {fileID: 1896694914}
   - component: {fileID: 1896694916}
+  - component: {fileID: 1896694917}
   m_Layer: 0
   m_Name: Paddle - Player 2
   m_TagString: Player2Paddle
@@ -3597,6 +3665,7 @@ MonoBehaviour:
   Speed: 20
   MaxMovement: 3.5
   SpeedSlewRate: 1
+  IsAIControlled: 1
 --- !u!114 &1896694915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3643,6 +3712,69 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!114 &1896694917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896694909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635e6e5c8c5c00045bee58bb115d09bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlewRate: 5
+  MaxPositionDelta: 1
+  BallSpeedModifier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  VelocityOutput:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ReactionDistance: 10
 --- !u!1 &1952671214
 GameObject:
   m_ObjectHideFlags: 0

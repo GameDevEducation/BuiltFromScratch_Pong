@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameOverHUD GameOverUI;
     [SerializeField] UnityEvent OnGameOver = new UnityEvent();
 
+    [SerializeField] PaddleController LeftPaddle;
+    [SerializeField] PaddleController RightPaddle;
+
     EGameState State = EGameState.Playing;
 
     BallController SpawnedBall;
@@ -32,6 +35,8 @@ public class GameManager : MonoBehaviour
     int Player2Score = 0;
 
     public static GameManager Instance { get; private set; }
+
+    public BallController ActiveBall => SpawnedBall;
 
     void Awake()
     {
@@ -49,6 +54,17 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ScoreUI.OnResetScores();
+
+        if (PlayerPrefs.GetInt(PlayerPrefKeys.IsHumanVsHuman, 1) == 1)
+        {
+            LeftPaddle.SetIsAIControlled(false);
+            RightPaddle.SetIsAIControlled(false);
+        }
+        else
+        {
+            LeftPaddle.SetIsAIControlled(false);
+            RightPaddle.SetIsAIControlled(true);            
+        }
 
         StartCoroutine(SpawnNewBall(InitialBallSpawnDelay));
     }
